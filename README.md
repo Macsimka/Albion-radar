@@ -33,9 +33,9 @@ git clone https://github.com/Macsimka/Albion-radar.git
 
 ### Visual Studio 2022
 
-### WinPcap
+### Npcap
 
-This library requires [WinPcap](https://www.winpcap.org/).
+This library requires [Npcap](https://npcap.com/#download).
 
 ## License
 
