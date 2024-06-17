@@ -345,7 +345,7 @@ public sealed class PacketHandler : PhotonParser
             int id = Convert.ToInt32(parameters[0]);
             string nick = Convert.ToString(parameters[1]);
             string guild = parameters.TryGetValue(8, out var guildObj) ? Convert.ToString(guildObj) : string.Empty;
-            string alliance = Convert.ToString(parameters[49]);
+            string alliance = parameters.TryGetValue(49, out var allianceObj) ? Convert.ToString(allianceObj) : string.Empty;
 
             float[] a13 = (float[])parameters[14];
 
