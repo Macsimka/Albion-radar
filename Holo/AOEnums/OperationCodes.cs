@@ -497,5 +497,5 @@ public enum OperationCodes
     ClaimDailyMightBonus,
     GetFortificationGroupInfo,
     UpgradeFortificationGroup,
-    GetClusterActivityChestEstimates,
+    GetClusterActivityChestEstimates
 }

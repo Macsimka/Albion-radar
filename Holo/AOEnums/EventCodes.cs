@@ -8,6 +8,7 @@ public enum EventCodes : ushort
     Teleport,
     ChangeEquipment,
     HealthUpdate,
+    HealthUpdates,
     EnergyUpdate,
     DamageShieldUpdate,
     CraftingFocusUpdate,
@@ -584,5 +585,5 @@ public enum EventCodes : ushort
     CastleGateSwitchUseStarted,
     CastleGateSwitchUseFinished,
     FortificationBuildingWillDowngrade,
-    BotCommand,
+    BotCommand
 }
