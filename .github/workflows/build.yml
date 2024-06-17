@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+      - name: Build
+        run: dotnet build /p:Platform=x64 /p:OutDir=Holo
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Holo
+          path: ./Holo
+
+  release:
+    name: Create release and upload asset
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v1
+        with:
+          name: Holo
+      - name: make archive
+        run: cd ./Holo && zip -r Holo.zip Holo
+      - uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          delete_release: true
+          tag_name: latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          tag_name: latest
+          release_name: Holo-${{ steps.date.outputs.date }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./Holo/Holo.zip
+          asset_name: Holo.zip
+          asset_content_type: application/zip
