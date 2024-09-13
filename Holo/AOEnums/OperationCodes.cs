@@ -214,14 +214,10 @@ public enum OperationCodes
     AllianceChangeGoldPaymentFlag,
     AllianceGetDetailInfo,
     GetIslandInfos,
-    AbandonMyIsland,
     BuyMyIsland,
     BuyGuildIsland,
-    AbandonGuildIsland,
     UpgradeMyIsland,
     UpgradeGuildIsland,
-    MoveMyIsland,
-    MoveGuildIsland,
     TerritoryFillNutrition,
     TeleportBack,
     PartyInvitePlayer,
@@ -497,5 +493,11 @@ public enum OperationCodes
     ClaimDailyMightBonus,
     GetFortificationGroupInfo,
     UpgradeFortificationGroup,
-    GetClusterActivityChestEstimates
+    CancelUpgradeFortificationGroup,
+    DowngradeFortificationGroup,
+    GetClusterActivityChestEstimates,
+    PartyReadyCheckBegin,
+    PartyReadyCheckUpdate,
+    ClaimAlbionJournalReward,
+    TrackAlbionJournalAchievements
 }

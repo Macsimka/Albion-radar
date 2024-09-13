@@ -64,6 +64,7 @@ public enum EventCodes : ushort
     HarvestCancel,
     HarvestFinished,
     TakeSilver,
+    RemoveSilver,
     ActionOnBuildingStart,
     ActionOnBuildingCancel,
     ActionOnBuildingFinished,
@@ -241,6 +242,7 @@ public enum EventCodes : ushort
     PartyOnClusterPartyJoined,
     PartySetRoleFlag,
     PartyInviteOrJoinPlayerEquipmentInfo,
+    PartyReadyCheckUpdate,
     SpellCooldownUpdate,
     NewHellgateExitPortal,
     NewExpeditionExit,
@@ -498,6 +500,7 @@ public enum EventCodes : ushort
     PartyStartHuntRequest,
     PartyStartHuntRequested,
     PartyStartHuntRequestAnswer,
+    PartyPlayerLeaveScheduled,
     GuildInviteDeclined,
     CancelMultiSpellSlots,
     NewVisualEventObject,
@@ -585,5 +588,8 @@ public enum EventCodes : ushort
     CastleGateSwitchUseStarted,
     CastleGateSwitchUseFinished,
     FortificationBuildingWillDowngrade,
-    BotCommand
+    BotCommand,
+    JournalAchievementProgressUpdate,
+    JournalClaimableRewardUpdate,
+    KeySync,
 }
