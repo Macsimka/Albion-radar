@@ -30,7 +30,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: Holo
       - name: make archive
